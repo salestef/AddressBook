@@ -38,16 +38,16 @@ class DatabaseSeeder extends Seeder
         \App\Models\City::factory(10)->create();
         \App\Models\Agency::factory(8)->create();
         User::factory(10)->create();
-        \App\Models\UserProfession::factory()->create(
+        \App\Models\ProfessionUser::factory()->create(
             [
                 'user_id' => $admin,
                 'profession_id' => $adminProfession
             ]);
-        \App\Models\UserProfession::factory()->create(
+        \App\Models\ProfessionUser::factory()->create(
             [
                 'user_id' => $user,
                 'profession_id' => $userProfession
             ]);
-        \App\Models\UserProfession::factory(15)->create();
+        \App\Models\ProfessionUser::factory(15)->create();
     }
 }

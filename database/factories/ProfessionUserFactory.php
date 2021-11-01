@@ -6,7 +6,7 @@ use App\Models\Profession;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserProfessionFactory extends Factory
+class ProfessionUserFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,8 +16,9 @@ class UserProfessionFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
-            'profession_id' => Profession::factory(),
+            //
+            "profession_id" => Profession::factory(),
+            "user_id" => User::factory()
         ];
     }
 }

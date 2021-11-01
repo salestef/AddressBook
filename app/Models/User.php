@@ -42,9 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function profession(){
+    public function professions(){
         // hasOne, hasMany, belongsTo, belongsToMany
-        return $this->belongsToMany(Profession::class);
+        return $this->belongsToMany(Profession::class,'profession_user','user_id','profession_id');
     }
 
     public function agency(){

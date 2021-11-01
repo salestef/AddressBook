@@ -9,8 +9,9 @@ class Profession extends Model
 {
     use HasFactory;
 
-    public function user(){
+    public function users(){
         // hasOne, hasMany, belongsTo, belongsToMany
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,'profession_user','profession_id','user_id');
     }
+
 }
