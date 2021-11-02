@@ -9,7 +9,9 @@ class Agency extends Model
 {
     use HasFactory;
 
-    public function user(){
+    protected $guarded = ['id'];
+
+    public function users(){
         // hasOne, hasMany, belongsTo, belongsToMany
         return $this->hasMany(User::class);
     }

@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+Route::resource('agencies', \App\Http\Controllers\AgencyController::class);
+Route::get('/agencies/search/{name}',[\App\Http\Controllers\AgencyController::class,'search']);
+
+Route::resource('users', \App\Http\Controllers\UserController::class);
+Route::get('/users/search/{name}',[\App\Http\Controllers\UserController::class,'search']);
+//Route::get('/agencies',[\App\Http\Controllers\AgencyController::class,'index']);
+//Route::post('/agencies',[\App\Http\Controllers\AgencyController::class,'store']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
-
-Route::get('/test/{parametar}',function ($parametar){
-   echo json_encode(["parametar" => $parametar]);
-   die;
 });
