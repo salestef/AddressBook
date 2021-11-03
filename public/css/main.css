@@ -1,0 +1,165 @@
+/*!*======================= CSS Reset ===========================*!*/
+/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, section, main, footer, header, figure, aside, input, textarea, i, mark, *:before, *:after {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*border: 0;*/
+    /*outline: 0;*/
+    /*font-weight: inherit;*/
+    /*font-style: inherit;*/
+    /*font-size: 100%;*/
+    /*font-family: inherit;*/
+    /*vertical-align: top;*/
+    /*background: transparent;*/
+    /*line-height: 1;*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box; }*/
+
+/*html, body {*/
+    /*width: 100%; }*/
+
+/*html {*/
+    /*overflow-y: scroll;*/
+    /*overflow-x: hidden; }*/
+
+/*body {*/
+    /*overflow: hidden; }*/
+
+/*ol, ul {*/
+    /*list-style: none; }*/
+
+/*:focus {*/
+    /*outline: 0; }*/
+
+/*.clearfix:after {*/
+    /*content: "";*/
+    /*display: table;*/
+    /*clear: both; }*/
+
+/*table, table td tr {*/
+    /*border: none;*/
+    /*border-collapse: collapse; }*/
+
+/*button, a, input, textarea, select {*/
+    /*background: none;*/
+    /*border: 0;*/
+    /*color: inherit;*/
+    /*font: inherit;*/
+    /*line-height: normal;*/
+    /*overflow: visible;*/
+    /*padding: 0;*/
+    /*-webkit-appearance: none;*/
+    /*-moz-appearance: none;*/
+    /*appearance: none; }*/
+
+
+
+/* Full-width input fields */
+a {
+    text-decoration: none;
+}
+
+
+input[type=text], input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+label{
+    font-family: "Arial Black";
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 16px;
+    min-height: 80vh;
+}
+
+footer {
+    /*height: 100px;*/
+    text-align: center;
+}
+
+nav{
+    position: relative;
+    padding-bottom: 70px;
+    margin-bottom: 14px;
+    border-bottom: saddlebrown 2px solid;
+}
+.nav-item {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+
+.default-link{
+    color: #04AA6D;
+    text-decoration: none;
+}
+
+.default-link:hover {
+    /*color: #048757;*/
+    color: #04784d !important;
+    text-decoration: none !important;
+
+}
+.nav-item:first-child{
+    left: 20px;
+    font-size: 32px;
+}
+.nav-item:last-child{
+    top: 8px;
+    right: 30px;
+    font-size: 22px;
+}
+
+.button-add {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button-add:hover{
+    background-color: #04784d;
+    color: white;
+    text-decoration: none;
+}
+
+.agency-card{
+    margin-top: 30px;
+    width: 60%;
+}
+
+.agency-card:first-child{
+    margin-top: 50px;
+}
+
+/*.logout {*/
+    /*width: 32px;*/
+/*}*/

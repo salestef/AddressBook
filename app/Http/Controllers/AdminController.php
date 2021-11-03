@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agency;
+use App\Models\City;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,9 @@ class AdminController extends Controller
 //    }
 
     public function agencyAdd(){
-        return view('admin.agency-single');
+        return view('admin.agency-single', [
+            "cities" =>  City::with('country')->get()
+        ]);
     }
 
     public function agencyEdit($id){
