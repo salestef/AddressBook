@@ -14,16 +14,6 @@
                     @endforeach
                 </select>
                 <br>
-
-                <label for="users_agency">Contacts</label>
-
-                <select class="form-select" id="users_agency" name="users" multiple aria-label="multiple select example">
-                    @foreach($users as $user)
-                        <option value="{{$user->id}}">{{ucwords($user->first_name . " " . $user->last_name)}}</option>
-                    @endforeach
-                </select>
-                <br>
-
                 <label for="address_agency"><b>Address</b></label>
                 <input id="address_agency" type="text" placeholder="Enter address" name="address" required>
                 <label for="email_agency"><b>Email</b></label>
@@ -37,27 +27,10 @@
         </div>
     </div>
     <script>
-        $("#users_agency").mousedown(function(e){
-            e.preventDefault();
-
-            var select = this;
-            var scroll = select .scrollTop;
-
-            e.target.selected = !e.target.selected;
-
-            setTimeout(function(){select.scrollTop = scroll;}, 0);
-
-            $(select ).focus();
-        }).mousemove(function(e){e.preventDefault()});
-
-        var add = 'add';
         $(document).ready(function () {
-            <?php
-            $method = \Illuminate\Support\Facades\Request::route('method');
-            if($method != "add"){ ?>
-            getAgency({{ $method }});
-            <?php } ?>
-            saveAgency({{ $method }});
+            <?php $agency = \Illuminate\Support\Facades\Request::route('agency'); ?>
+            getAgency({{ $agency }});
+            saveAgency({{ $agency }});
         });
     </script>
 </x-layout>

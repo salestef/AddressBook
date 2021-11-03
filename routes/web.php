@@ -25,10 +25,10 @@ Route::get('/logout', [\App\Http\Controllers\SessionsController::class,'logout']
 Route::group(['middleware' => ['auth','admin']],function (){
 //    Route::get('/admin', [\App\Http\Controllers\AdminController::class,'index']);
     Route::get('/admin', [\App\Http\Controllers\AdminController::class,'index']);
-    Route::get('/admin/agency/add', [\App\Http\Controllers\AdminController::class,'agencyAdd']);
-    Route::get('/admin/agency/{agency}', [\App\Http\Controllers\AdminController::class,'agencyEdit']);
-    Route::get('/admin/contact/add', [\App\Http\Controllers\AdminController::class,'contactAdd']);
-    Route::get('/admin/contact/{contact}', [\App\Http\Controllers\AdminController::class,'contactEdit']);
+//    Route::get('/admin/agency/add', [\App\Http\Controllers\AdminController::class,'agencyAdd']);
+//    Route::get('/admin/agency/{agency}', [\App\Http\Controllers\AdminController::class,'agencyEdit']);
+    Route::get('/admin/agency/{method}', [\App\Http\Controllers\AdminController::class,'agency']);
+    Route::get('/admin/contact/{method}', [\App\Http\Controllers\AdminController::class,'contact']);
 });
 
 Route::group(['middleware' => ['auth','contact']],function (){

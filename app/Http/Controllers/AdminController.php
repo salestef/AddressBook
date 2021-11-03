@@ -4,48 +4,38 @@ namespace App\Http\Controllers;
 
 use App\Models\Agency;
 use App\Models\City;
+use App\Models\Profession;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
-    {
-        return view('admin.index', [
-            "agencies" =>  Agency::with(["city","users" => function($query){
-                $query->where('users.role', '=', 'contact');
-            }])->get()
-        ]);
-    }
-
 //    public function index()
 //    {
-//        return view('admin.index');
+//        return view('admin.index', [
+//            "agencies" =>  Agency::with(["city","city.country","users" => function($query){
+//                $query->where('users.role', '=', 'contact');
+//            }])->get()
+//        ]);
 //    }
 
-    public function agencyAdd(){
+    public function index()
+    {
+        return view('admin.index');
+    }
+
+    public function agency($method){
         return view('admin.agency-single', [
+            "method" => $method,
+            "users" => User::with(["professions", "agency"])->where('role','=','contact')->get(),
             "cities" =>  City::with('country')->get()
         ]);
     }
 
-    public function agencyEdit($id){
-        $agency = Agency::find($id);
-        dd($agency->name);
-        return view('admin.agency-single', [
-            "agency" =>  $agency
-        ]);
-    }
-
-    public function contactAdd(){
-        return view('admin.contact-single');
-    }
-
-    public function contactEdit($id){
-        $contact = User::find($id);
-        dd($contact->first_name);
+    public function contact($method){
         return view('admin.contact-single', [
-            "contact" =>  $contact
+            "method" => $method,
+            "professions" =>  Profession::all()
         ]);
     }
 }

@@ -16,7 +16,7 @@ class AgencyController extends Controller
      */
     public function index()
     {
-        return Agency::with(["city", "users" => function ($query) {
+        return Agency::with(["city","city.country", "users" => function ($query) {
             $query->where('users.role', '=', 'contact');
         }])->get();
     }
@@ -50,7 +50,9 @@ class AgencyController extends Controller
      */
     public function show($id)
     {
-        return Agency::find($id);
+        return is_numeric($id) ? Agency::with(["city","city.country", "users" => function ($query) {
+            $query->where('users.role', '=', 'contact');
+        }])->find($id) : null;
     }
 
     /**
@@ -62,8 +64,14 @@ class AgencyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $agency = Agency::find($id);
-        $agency->update($request->all());
+//        $agency = Agency::find($id);
+        $agency = Agency::with(["city","city.country", "users" => function ($query) {
+            $query->where('users.role', '=', 'contact');
+        }])->find($id);
+        // ako nije u nizu prebaci u NULL
+        // update sve iz niza u agency_id ove agencie ukoliko nisu vec deo nje
+        // namestiti da je agency ID nullable ili ne tj. da li moze postojati korisnik bez agencije ( takodje Admin nema agenciju?)
+        return $agency->update($request->all());
     }
 
     /**
