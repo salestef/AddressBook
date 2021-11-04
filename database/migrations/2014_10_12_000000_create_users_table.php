@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->enum('role', ['admin', 'contact']);
+            $table->enum('role', ['contact','admin'])->default('contact');
             $table->string('web')->nullable();
             $table->string('phone_number')->nullable();
             $table->text('avatar')->nullable();

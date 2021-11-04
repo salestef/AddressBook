@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agency;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -94,5 +95,9 @@ class AgencyController extends Controller
     public function search($name)
     {
         return Agency::where('name', 'like', '%' . $name . '%')->get();
+    }
+
+    public function agencyUsers($id){
+        return User::where('agency_id','=',$id);
     }
 }
