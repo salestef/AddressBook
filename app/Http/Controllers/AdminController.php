@@ -10,15 +10,6 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-//    public function index()
-//    {
-//        return view('admin.index', [
-//            "agencies" =>  Agency::with(["city","city.country","users" => function($query){
-//                $query->where('users.role', '=', 'contact');
-//            }])->get()
-//        ]);
-//    }
-
     public function index()
     {
         return view('admin.index');

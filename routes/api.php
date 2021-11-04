@@ -22,8 +22,6 @@ Route::get('/agencies/contacts/{id}',[\App\Http\Controllers\AgencyController::cl
 
 Route::resource('users', \App\Http\Controllers\UserController::class);
 Route::get('/users/search/{name}',[\App\Http\Controllers\UserController::class,'search']);
-//Route::get('/agencies',[\App\Http\Controllers\AgencyController::class,'index']);
-//Route::post('/agencies',[\App\Http\Controllers\AgencyController::class,'store']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

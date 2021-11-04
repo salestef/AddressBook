@@ -19,7 +19,6 @@ class UserFactory extends Factory
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'agency_id' => Agency::factory(),
-//            'agency_id' => Agency::inRandomOrder()->first()->id,
             'email' => $this->faker->unique()->safeEmail(),
             'role' => 'contact',
             'web' => $this->faker->url(),

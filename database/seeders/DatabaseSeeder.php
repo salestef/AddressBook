@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             );
         }
 
-        Profession::factory(100)->create();
+        Profession::factory(40)->create();
 
         $professions = Profession::all();
 

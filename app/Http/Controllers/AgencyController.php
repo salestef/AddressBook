@@ -6,7 +6,6 @@ use App\Models\Agency;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class AgencyController extends Controller
 {
@@ -65,13 +64,9 @@ class AgencyController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        $agency = Agency::find($id);
         $agency = Agency::with(["city","city.country", "users" => function ($query) {
             $query->where('users.role', '=', 'contact');
         }])->find($id);
-        // ako nije u nizu prebaci u NULL
-        // update sve iz niza u agency_id ove agencie ukoliko nisu vec deo nje
-        // namestiti da je agency ID nullable ili ne tj. da li moze postojati korisnik bez agencije ( takodje Admin nema agenciju?)
         return $agency->update($request->all());
     }
 
