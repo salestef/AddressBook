@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('agencies', \App\Http\Controllers\AgencyController::class);
 Route::get('/agencies/search/{name}',[\App\Http\Controllers\AgencyController::class,'search']);
-Route::get('/agencies/users/{id}',[\App\Http\Controllers\AgencyController::class,'agencyUsers']);
+Route::get('/agencies/contacts/{id}',[\App\Http\Controllers\AgencyController::class,'agencyContacts']);
 
 Route::resource('users', \App\Http\Controllers\UserController::class);
 Route::get('/users/search/{name}',[\App\Http\Controllers\UserController::class,'search']);

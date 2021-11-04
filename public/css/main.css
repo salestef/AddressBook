@@ -97,6 +97,7 @@ button {
 footer {
     /*height: 100px;*/
     text-align: center;
+    padding: 15px 0;
 }
 
 nav{
@@ -136,13 +137,15 @@ nav{
     background-color: #04AA6D;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 12px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    width: 140px;
+    height: 46px;
 }
 
 .button-add:hover{
@@ -150,6 +153,50 @@ nav{
     color: white;
     text-decoration: none;
 }
+
+.button-delete {
+    background-color: #FF070E;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 140px;
+    height: 46px;
+
+}
+
+.button-delete:hover{
+    background-color: #BA070E;
+    color: white;
+    text-decoration: none;
+}
+
+.button-neutral {
+    background-color: #BFBFBF;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 140px;
+    height: 46px;
+}
+
+.button-neutral:hover{
+    background-color: #939393;
+    color: white;
+    text-decoration: none;
+}
+
 
 .agency-card{
     margin-top: 30px;

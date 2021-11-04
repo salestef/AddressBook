@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Agency;
+use App\Models\City;
+use App\Models\Profession;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -14,12 +17,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Agency::factory(5)->create();
+        City::factory(50)->create();
         $admin = User::factory()->create([
             'first_name' => 'Admin',
             'last_name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin123'),
-            'role' => 'admin'
+            'role' => 'admin',
+            'agency_id' => null
         ]);
 
         $user = User::factory()->create([
@@ -30,24 +36,23 @@ class DatabaseSeeder extends Seeder
             'role' => 'contact'
         ]);
 
+        for($i=1; $i<=60; $i++) {
+            $users = User::factory()->create(
+                [
+                    'role' => 'contact',
+                    'agency_id' => Agency::inRandomOrder()->first()->id
+                ]
+            );
+        }
 
-        $adminProfession = \App\Models\Profession::factory()->create(['name' => 'admin']);
-        $userProfession = \App\Models\Profession::factory()->create(['name' => 'contact']);
-        \App\Models\Profession::factory(10)->create();
-        \App\Models\Country::factory(5)->create();
-        \App\Models\City::factory(10)->create();
-        \App\Models\Agency::factory(8)->create();
-        User::factory(10)->create();
-        \App\Models\ProfessionUser::factory()->create(
-            [
-                'user_id' => $admin,
-                'profession_id' => $adminProfession
-            ]);
-        \App\Models\ProfessionUser::factory()->create(
-            [
-                'user_id' => $user,
-                'profession_id' => $userProfession
-            ]);
-        \App\Models\ProfessionUser::factory(15)->create();
+        Profession::factory(100)->create();
+
+        $professions = Profession::all();
+
+        User::where('role','=','contact')->each(function ($user) use ($professions){
+            $user->professions()->attach(
+                  $professions->random(rand(1,3))->pluck('id')->toArray()
+            );
+        });
     }
 }

@@ -97,7 +97,16 @@ class AgencyController extends Controller
         return Agency::where('name', 'like', '%' . $name . '%')->get();
     }
 
-    public function agencyUsers($id){
-        return User::where('agency_id','=',$id);
+    /**
+     * get agency Users.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function agencyContacts($id){
+        return User::where([
+            ['role', '=', 'contact'],
+            ['agency_id', '=', $id]
+        ])->get();
     }
 }

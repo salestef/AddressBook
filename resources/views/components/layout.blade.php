@@ -16,30 +16,117 @@
 </head>
 
 
-{{--<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>--}}
 <body>
 <section>
-    {{--<nav class="md:flex md:justify-between md:items-center">--}}
-        {{--<div>--}}
-            {{--<a href="/">--}}
-                {{--<img src="/images/logo.svg" alt="Laracasts Logo" width="165" height="16">--}}
-            {{--</a>--}}
-        {{--</div>--}}
 
-        {{--<div class="mt-8 md:mt-0">--}}
-            {{--<a href="/" class="text-xs font-bold uppercase">Home Page</a>--}}
-
-            {{--<a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">--}}
-                {{--Subscribe for Updates--}}
-            {{--</a>--}}
-        {{--</div>--}}
-    {{--</nav>--}}
 
     {{ $slot }}
 
-    <footer>
-        FOOTER
-    </footer>
+    <footer>&copy; Copyright <?=date('Y')?> <b>AddressBook</b></footer>
+
 </section>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="user-modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add contact</h4>
+            </div>
+            <div class="modal-body">
+                <label for="first_name_user"><b>First Name</b></label>
+                <input id="first_name_user" type="text" placeholder="Enter name" name="first_name_user" required>
+                <label for="last_name_user"><b>Last Name</b></label>
+                <input id="last_name_user" type="text" placeholder="Enter last name" name="last_name_user" required>
+                <label for="email_user"><b>Email</b></label>
+                <input id="email_user" type="text" placeholder="Enter email" name="email_user" required>
+                <label for="web_user"><b>Web</b></label>
+                <input id="web_user" type="text" placeholder="Enter web" name="web_user" required>
+                <label for="phone_user"><b>Phone Number</b></label>
+                <input id="phone_user" type="text" placeholder="Enter phone number" name="phone_user" required>
+                <label for="password_user"><b>Pasword</b></label>
+                <input id="password_user" type="password" placeholder="Enter web" name="password_user" required>
+                <button type="submit" id="add-submit" class="user_submit" data-method="add" data-agency-id="" data-user-id="">Save</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal Edit -->
+<div class="modal fade" id="user-modal-edit" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit contact</h4>
+            </div>
+            <div class="modal-body">
+                <label for="first_name_user_edit"><b>First Name</b></label>
+                <input id="first_name_user_edit" type="text" placeholder="Enter name" name="first_name_user_edit" required>
+                <label for="last_name_user_edit"><b>Last Name</b></label>
+                <input id="last_name_user_edit" type="text" placeholder="Enter last name" name="last_name_user_edit" required>
+                <label for="email_user_edit"><b>Email</b></label>
+                <input id="email_user_edit" type="text" placeholder="Enter email" name="email_user_edit" required>
+                <label for="web_user_edit"><b>Web</b></label>
+                <input id="web_user_edit" type="text" placeholder="Enter web" name="web_user_edit" required>
+                <label for="phone_user_edit"><b>Phone Number</b></label>
+                <input id="phone_user_edit" type="text" placeholder="Enter phone number" name="phone_user_edit" required>
+                {{--<label for="password_user_edit"><b>Pasword</b></label>--}}
+                {{--<input id="password_user_edit" type="password" placeholder="Enter web" name="password_user_edit" required>--}}
+                <button type="submit" class="user_submit" data-method="edit" data-agency-id="" data-user-id="">Save</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal fade" id="user-modal-delete" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="text-align: center;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Are you sure you want to delete this contact?</h4>
+            </div>
+            <div class="modal-body" >
+                <button type="submit" class="user_submit button-delete" data-method="delete" data-agency-id="" data-user-id="">Delete</button>
+                <button type="button" class="button-neutral"  data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+{{----}}
+<script>
+
+    $(document).delegate(".button-modal", "click", function() {
+        manageModals(this);
+    });
+
+    // $( document ).ajaxComplete(function() {
+    //     manageAgencyUser();
+    // });
+    $(document).ready(function () {
+        manageAgencyUser();
+    });
+</script>
+
 </body>
 </html>

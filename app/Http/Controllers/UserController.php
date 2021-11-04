@@ -35,7 +35,7 @@ class UserController extends Controller
                 'phone_number' => 'required'
             ]
         );
-
+        $request->merge(['password' => bcrypt($request->post('password'))]);
         return User::create($request->all());
 
     }

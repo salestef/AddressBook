@@ -15,13 +15,13 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $roles = ['admin','contact'];
         return [
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'agency_id' => Agency::factory(),
+//            'agency_id' => Agency::inRandomOrder()->first()->id,
             'email' => $this->faker->unique()->safeEmail(),
-            'role' => $roles[rand(0,1)],
+            'role' => 'contact',
             'web' => $this->faker->url(),
             'phone_number' => $this->faker->phoneNumber(),
             'avatar' => $this->faker->imageUrl(),
